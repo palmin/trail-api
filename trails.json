@@ -1,0 +1,7 @@
+[
+  { "id": "ridge-loop", "name": "Ridge Loop", "kilometers": 8.4, "climb": 420, "difficulty": "moderate" },
+  { "id": "lake-walk", "name": "Lake Walk", "kilometers": 3.1, "climb": 35, "difficulty": "easy" },
+  { "id": "eagle-pass", "name": "Eagle Pass", "kilometers": 14.7, "climb": 1130, "difficulty": "hard" },
+  { "id": "birch-hollow", "name": "Birch Hollow", "kilometers": 5.6, "climb": 180, "difficulty": "easy" },
+  { "id": "summit-stairs", "name": "Summit Stairs", "kilometers": 6.2, "climb": 890, "difficulty": "hard" }
+]
