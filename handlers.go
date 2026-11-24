@@ -9,6 +9,9 @@ func routes(mux *http.ServeMux, trails []Trail) {
 	mux.HandleFunc("GET /trails", func(w http.ResponseWriter, r *http.Request) {
 		listTrails(w, r, trails)
 	})
+	mux.HandleFunc("GET /trails/{id}", func(w http.ResponseWriter, r *http.Request) {
+		showTrail(w, r, trails)
+	})
 	mux.HandleFunc("GET /health", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("ok\n"))
 	})
@@ -27,4 +30,18 @@ func listTrails(w http.ResponseWriter, r *http.Request, trails []Trail) {
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(found)
+}
+
+// showTrail answers with the trail that has the id in the path.
+func showTrail(w http.ResponseWriter, r *http.Request, trails []Trail) {
+	id := r.PathValue("id")
+
+	for _, trail := range trails {
+		if trail.ID == id {
+			w.Header().Set("Content-Type", "application/json")
+			json.NewEncoder(w).Encode(trail)
+			return
+		}
+	}
+	http.NotFound(w, r)
 }
