@@ -43,5 +43,5 @@ func showTrail(w http.ResponseWriter, r *http.Request, trails []Trail) {
 			return
 		}
 	}
-	http.Error(w, "no trail has the id "+id, http.StatusNotFond)
+	http.Error(w, "no trail has the id "+id, http.StatusNotFound)
 }
